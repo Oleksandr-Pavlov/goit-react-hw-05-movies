@@ -4,7 +4,7 @@ import { Movies } from '../components/Movies/Movies';
 import { SearchBox } from '../components/SearchBox/SearchBox';
 import { fetchMoviesByQuery } from '../services/fetchMoviesByQuery';
 
-export const MoviesPage = () => {
+const MoviesPage = () => {
   const [movies, setMovies] = useState([]);
   const [error, setError] = useState(null);
   const [searchParams, setSearchParams] = useSearchParams();
@@ -27,8 +27,10 @@ export const MoviesPage = () => {
     <main>
       {error && <h1>Oops, {error.message}. Please reload the page</h1>}
       <SearchBox value={movieName} onChange={updateQueryString} />
-      {movies.length === 0 && <p>Sorry, there are no films with this name</p>}
+      {movieName !== '' && movies.length === 0 && <p>Sorry, there are no films with this name</p>}
       <Movies movies={movies} />
     </main>
   );
 };
+
+export default MoviesPage

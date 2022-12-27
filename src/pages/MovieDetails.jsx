@@ -3,7 +3,7 @@ import { useParams, useLocation, Link, Outlet } from 'react-router-dom';
 import { BackLink } from '../components/BackLink/BackLink';
 import { fetchMovieDetailsById } from '../services/fetchMovieDetailsById';
 
-export const MovieDetails = () => {
+const MovieDetails = () => {
   const { id } = useParams();
   const [movie, setMovie] = useState({});
   const [error, setError] = useState(null);
@@ -36,7 +36,11 @@ export const MovieDetails = () => {
           </div>
           <div>
             <h3>Genres</h3>
-            <p>{genres && genres.map(genre => genre.name).join(', ')}</p>
+            <p>
+              {genres && genres.length
+                ? genres.map(genre => genre.name).join(', ')
+                : 'There are no known genres'}
+            </p>
           </div>
         </div>
       </div>
@@ -62,3 +66,5 @@ export const MovieDetails = () => {
     </main>
   );
 };
+
+export default MovieDetails
