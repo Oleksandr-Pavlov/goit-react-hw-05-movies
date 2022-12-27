@@ -25,10 +25,14 @@ const MoviesPage = () => {
 
   return (
     <main>
-      {error && <h1>Oops, {error.message}. Please reload the page</h1>}
-      <SearchBox value={movieName} onChange={updateQueryString} />
-      {movieName !== '' && movies.length === 0 && <p>Sorry, there are no films with this name</p>}
-      <Movies movies={movies} />
+      {error && <h1>Oops, {error.message}. Please reload the page or go back</h1>}
+      {!error && (
+        <>
+          <SearchBox value={movieName} onChange={updateQueryString} />
+          {movieName !== '' && movies.length === 0 && <p>Sorry, there are no films with this name</p>}
+          <Movies movies={movies} />
+        </>
+      )}
     </main>
   );
 };

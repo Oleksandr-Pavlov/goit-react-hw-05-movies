@@ -33,6 +33,7 @@ const Cast = () => {
               src={profile_path !== null ? poster + profile_path : 'https://via.placeholder.com/300x450'}
               alt="name"
               width="300"
+              loading='lazy'
             />
             <p>{name}</p>
           </li>

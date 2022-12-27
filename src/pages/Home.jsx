@@ -14,9 +14,13 @@ const Home = () => {
 
   return (
     <main>
-      {error && <h1>Oops, {error.message}. Please reload the page</h1>}
-      <h1>Trending today</h1>
-      <Movies movies={movies} />
+      {error && <h1>Oops, {error.message}. Please reload the page or go back</h1>}
+      {!error && (
+        <>
+          <h1>Trending today</h1>
+          <Movies movies={movies} />
+        </>
+      )}
     </main>
   );
 };
