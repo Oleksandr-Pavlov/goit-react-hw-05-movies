@@ -1,4 +1,4 @@
-import { TrendingMovies } from 'components/TrendingMovies/TrendingMovies';
+import { Movies } from 'components/Movies/Movies';
 import { useState, useEffect } from 'react';
 import { fetchTrendingMovies } from 'services/fetchTrendingMovies';
 
@@ -16,7 +16,7 @@ export const Home = () => {
     <main>
       {error && <h1>Oops, {error.message}. Please reload the page</h1>}
       <h1>Trending today</h1>
-      <TrendingMovies trendingMovies={movies} />
+      <Movies movies={movies} />
     </main>
   );
 };
